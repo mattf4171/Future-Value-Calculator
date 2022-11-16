@@ -1,0 +1,22 @@
+
+* {
+    font-family: "Rubik", "sans-serif";
+}
+
+div {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    color: #990033;
+    font-size: 40pt;
+}
+
+p {
+    font-size: 24pt;
+}
+div.center {
+    font-size: 35pt;
+    color: #339939;
+}
