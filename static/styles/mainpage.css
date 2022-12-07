@@ -7,7 +7,12 @@ body {
     background-color: #FCF1DC;
 }
 
-h1 {
+.headerPage1 {
+    color: #990033;
+    font-size: 40pt;
+}
+
+.headerPage2 {
     color: #990033;
     font-size: 40pt;
 }
@@ -21,6 +26,10 @@ p {
 }
 
 .img {
+    border: 3px;
+}
+
+.image {
     border: 3px;
 }
 
