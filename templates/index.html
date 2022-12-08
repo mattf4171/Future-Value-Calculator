@@ -5,23 +5,24 @@
         <meta charset="utf-8" />
     </head>
 
-    <body> 
+    <body>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link rel= "stylesheet" type= "text/css" href= "../static/styles/mainpage.css">
         <div class="center">
-            <h1 class="headerPage1">Application for future expected value</h1><br>
+            <h1 class="headerPage1">Future Expected Value Calculator</h1><br>
             <div>
                 <form>
                     <label class = "label" for="invest_amount">How much are you willing to invest per month?</label><br>
                     $<input type="text" class="invest_amount" id="invest_amount" name="invest_amount">
                 </form>
             </div>
-            <p>Counter:{{ count }}.</p>
-            
+            <p id="counter">Counter:{{ count }}.</p>
+
             <div>
                 <img src="{{url_for('static', filename='time-money.png')}}" align="middle" class='img'/>
             </div>
         </div>
+        <img id="csumb" src="/Users/matthewlencioni/Desktop/Future-Value-Calculator/static/csumb-logo-white.svg">
 
     </body>
 </html>

@@ -4,16 +4,17 @@
 }
 
 body {
-    background-color: #FCF1DC;
+    background-color: #003057;
 }
 
 .headerPage1 {
-    color: #990033;
+    color: #FFFFFF;
     font-size: 40pt;
+    font-family: Arial, "sans-serif";
 }
 
 .headerPage2 {
-    color: #990033;
+    color: #FFFFFF;
     font-size: 40pt;
 }
 
@@ -23,6 +24,7 @@ p {
 
 .label {
     font-size: 26pt;
+
 }
 
 .img {
@@ -36,5 +38,17 @@ p {
 .center {
     text-align: center;
     margin-top: 50px;
-    border: 3px solid green;
+    border: 3px solid #41695B;
+    background-color: #496786;
+}
+
+#counter {
+  visibility: hidden;
+}
+
+#invest_amount {
+  margin-top: 50px;
+}
+#csumb {
+margin: 20px;
 }
