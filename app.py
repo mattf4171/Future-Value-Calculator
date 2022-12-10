@@ -2,7 +2,7 @@
 This flask app will provide free resources to users who are intrested in future value
 
 """
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -33,21 +33,37 @@ def predict_stock_FV(investings):
 @app.route("/")
 def index():
     
-    # Load current count
-    f = open("count.txt", "r")
-    count = int(f.read())
-    f.close()
+    # # Load current count
+    # f = open("count.txt", "r")
+    # count = int(f.read())
+    # f.close()
 
-    # Increment the count
-    count += 1
+    # # Increment the count
+    # count += 1
 
-    # Overwrite the count
-    f = open("count.txt", "w")
-    f.write(str(count))
-    f.close()
+    # # Overwrite the count
+    # f = open("count.txt", "w")
+    # f.write(str(count))
+    # f.close()
 
     # Render HTML with count variable
-    return render_template("index.html", count=count)
+    # return render_template("index.html", count=count)
+
+    return render_template("index.html")
+
+@app.route('/predict', methods=["POST"])
+def futureVal():
+
+    if request.form.get('indexButton') == 'VALUE1':
+        investings = str(request.form.get('invest_amount')).strip(',$')
+        print(investings)
+    # predict_bond_FV(int(investings))
+    # predict_stock_FV(int(investings))
+
+    print('bond_FV: ',predict_bond_FV(int(investings)))
+    print('stock_FV: ',predict_stock_FV(int(investings)))
+    return render_template("futureVal.html", bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)))#, bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)))
+
 
 if __name__ == "__main__":
     app.run()
