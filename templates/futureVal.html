@@ -10,12 +10,15 @@
         <link rel= "stylesheet" type= "text/css" href= "../static/styles/mainpage.css">
         <div class="center">
             <h1 class = "headerPage2">Future Expected Value Calculator</h1><br>
-            <div>
-                <form>
-                    <label class = "label" for="invest_amount">How much are you willing to invest per month?</label><br>
-                    $<input type="text" id="invest_amount" name="invest_amount">
-                </form>
-            </div>
+            <form action="/predict" method="post">
+                {% for row in bond_FV %}
+                    {{row}}
+                {% endfor %}<!-- bond_FV, stock_FV -->
+            
+                {% for row in stock_FV %}
+                    {{row}}
+                {% endfor %}<!-- bond_FV, stock_FV -->
+            </form>
 
         </div>
 
