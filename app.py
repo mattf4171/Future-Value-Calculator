@@ -53,7 +53,7 @@ def index():
 
 @app.route('/predict', methods=["POST"])
 def futureVal():
-
+    # TODO: try catch for int or otherwise
     if request.form.get('indexButton') == 'VALUE1':
         investings = str(request.form.get('invest_amount')).strip(',$')
         print(investings)
