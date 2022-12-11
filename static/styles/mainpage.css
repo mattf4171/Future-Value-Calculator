@@ -7,6 +7,15 @@ body {
     background-color: #003057;
 }
 
+.errorMsg{
+    color: red;
+    text-align: center;
+}
+
+.indexForm{
+    margin-bottom: 100px;
+}
+
 .headerPage1 {
     color: #FFFFFF;
     font-size: 40pt;
@@ -27,12 +36,24 @@ p {
 
 }
 
-.img {
+.CSUMBLogoimg {
     border: 3px;
+    height: 200px;
 }
 
 .image {
     border: 3px;
+}
+
+.calcImg{
+    border: 3px;
+    width: 175px;
+    height: 150px;
+}
+
+.info{
+    margin: 1em;
+    text-align: center;
 }
 
 .center {
@@ -50,5 +71,25 @@ p {
   margin-top: 50px;
 }
 #csumb {
-margin: 20px;
+    margin: 20px;
+}
+
+/* Future Value Page */
+.flex-parent-element {
+    display: flex;
+    width: 100%;
+}
+.flex-child-element {
+    flex: 1;
+    border: 2px solid #41695B;
+    margin: 10px;
+    background-color: beige;
+}
+
+.flex-child-element:first-child {
+    margin-right: 20px;
+}
+
+.subtitle {
+    color: #CFCFFC;
 }
