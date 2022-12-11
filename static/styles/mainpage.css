@@ -98,3 +98,8 @@ p {
 .subtitle {
     color: #CFCFFC;
 }
+
+#futureValFooter {
+    font-size: 12px;
+    color: greenyellow;
+}
