@@ -23,10 +23,10 @@
                 <!-- Show average annual Total Returns for 1, 3, 5, & 10 years -->
                 <!-- List with 4 elements -->
                 <div class="flex-parent-element">
+                    {% set num = investings | int %}
                     <div class="flex-child-element magenta">
                         <h3 class="subtitle">Expected Bond</h3>
-                        {% set num = investings | int %}
-                        {{num}}
+                        
                         {% for row in bond_FV %}
                                 {{row[0]}} yr
                             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
