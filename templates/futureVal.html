@@ -10,36 +10,47 @@
         <link rel= "stylesheet" type= "text/css" href= "../static/styles/mainpage.css">
         <div class="center">
             <h1 class = "headerPage2">Future Expected Value Calculator</h1><br>
-            <h2 class="futureValInfo">If you invest ${{investings}}</h2>
+            <div class="info">
+                <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" fill="currentColor" class="bi bi-calculator-fill" viewBox="0 0 16 16">
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5zm0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zm.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5h-1z"/>
+                </svg>
+                <!-- <img class ="calcImg" src="{{url_for('static', filename='calc.png')}}" align="middle"/> -->
+            </div>
+            <h2 class="futureValInfo">If you invest ${{investings}} today:</h2>
             
             <form action="/predict" method="post">
                 <!-- Show average annual Total Returns for 1, 3, 5, & 10 years -->
                 <!-- List with 4 elements -->
                 <div class="flex-parent-element">
                     <div class="flex-child-element magenta">
-                        <h3 class="subtitle">Expected Bond</h3>
+                        <h3 class="subtitle">Expected Bond Returns</h3>
                         {% for row in bond_FV %}
-                            {{row[0]}} yr
+                                {{row[0]}} yr
                             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                            ${{row[1]}}
+                                ${{row[1]}}
                             <hr>
                         {% endfor %} <!-- bond_FV, stock_FV -->
+                        <br>
                     </div>
                     
                 
                     <!-- Show average annual Total Returns for 1, 3, 5, & 10 years -->
                     <!-- List with 4 elements -->
                     <div class="flex-child-element green">
-                        <h3 class="subtitle">Expected Stock</h3>
+                        <h3 class="subtitle">Expected Stock Returns</h3>
                         {% for row in stock_FV %}
                             {{row[0]}} yr
                             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
                             ${{row[1]}}
                             <hr>
                         {% endfor %} <!-- bond_FV, stock_FV -->
+                        <br>
                     </div>
                 </div>
+                <input type="submit" class="button" value="Recalculate" name="indexButton"/>
             </form>
+
+           
         </div><br><br>
         <footer id="futureValFooter">According to national average in Bond and S&P 500 market</footer><br>
         <img id="csumb" src="{{url_for('static', filename='csumb-logo-white.svg')}}" align="middle" height=100px/>
