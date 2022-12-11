@@ -12,24 +12,74 @@ body {
     text-align: center;
 }
 
-.indexForm{
+.indexForm {
+    transition-duration: 0.4s;
+}
+
+/*  */
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #003057;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    height: 50px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+/*  */
+.indexForm:hover{
     margin-bottom: 100px;
+    border-radius: 12px;
+    background-color: white;
+    border: 2px solid #4CAF50;
 }
 
 .futureValInfo {
-    color: beige;
+    color: #FD841F;
     text-align: center;
 }
 
 .headerPage1 {
-    color: #FFFFFF;
+    color: #E14D2A;
     font-size: 40pt;
     font-family: Arial, "sans-serif";
 }
 
 .headerPage2 {
-    color: #FFFFFF;
+    color: #E14D2A;
     font-size: 40pt;
+    font-family: Arial, "sans-serif";
 }
 
 p {
@@ -38,7 +88,7 @@ p {
 
 .label {
     font-size: 26pt;
-
+    color: #FD841F;
 }
 
 .CSUMBLogoimg {
@@ -72,8 +122,18 @@ p {
   visibility: hidden;
 }
 
+#currencySymbol {
+    font-size: 28px;
+}
+
+input[type="text"]
+{
+    font-size:24px;
+}
 #invest_amount {
   margin-top: 50px;
+  width: 25%;
+  height: 30px;
 }
 #csumb {
     margin: 20px;
@@ -88,7 +148,8 @@ p {
     flex: 1;
     border: 2px solid #41695B;
     margin: 10px;
-    background-color: beige;
+    background-color:beige;
+    color: #003057;
 }
 
 .flex-child-element:first-child {
@@ -96,10 +157,11 @@ p {
 }
 
 .subtitle {
-    color: #CFCFFC;
+    color: #FD841F;
 }
 
 #futureValFooter {
     font-size: 12px;
     color: greenyellow;
+    margin-left: 20px;
 }
