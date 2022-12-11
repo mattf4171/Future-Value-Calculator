@@ -16,6 +16,11 @@ body {
     margin-bottom: 100px;
 }
 
+.futureValInfo {
+    color: beige;
+    text-align: center;
+}
+
 .headerPage1 {
     color: #FFFFFF;
     font-size: 40pt;
