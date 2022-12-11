@@ -2,7 +2,7 @@
 This flask app will provide free resources to users who are intrested in future value
 
 """
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, abort
 
 app = Flask(__name__)
 
@@ -45,17 +45,25 @@ def futureVal():
     # TODO: try catch for int or otherwise
     while True:
         try:
-            if request.form.get('indexButton') == 'VALUE1':
+            if request.form.get('indexButton') == 'Calculate':
                 investings = str(request.form.get('invest_amount')).strip(',$')
-            print(investings)
+                print(investings)
+            if request.form.get('indexButton') == 'Recalculate':
+                print("Recalculate Now...")
+                return render_template("index.html", err_msg="")
             break
         except ValueError:
             print('Please enter a number:')
+            abort(ValueError)
 
 
     print(predict_bond_FV(int(investings)))
     return render_template("futureVal.html", investings = investings, bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)) )#, bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)))
 
+# @app.route('/home', methods="POST")
+# def recalculate():
+#     if request.form.get('indexButton') == '':
+#         return render_template("index.html", err_msg="")
 
 if __name__ == "__main__":
     app.run()
