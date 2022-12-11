@@ -15,7 +15,10 @@ def predict_bond_FV(investings):
     three_yr = investings + (investings * (-0.0093))
     five_yr = investings + (investings * (0.0086))
     ten_yr = investings + (investings * (0.0150))
-    avg_annual_tot_returns_bond.append([one_yr, three_yr, five_yr, ten_yr])
+    avg_annual_tot_returns_bond.append([1,one_yr])
+    avg_annual_tot_returns_bond.append([3, three_yr])
+    avg_annual_tot_returns_bond.append([5,five_yr])
+    avg_annual_tot_returns_bond.append([10,ten_yr])
     return avg_annual_tot_returns_bond
 
 def predict_stock_FV(investings):
@@ -27,42 +30,31 @@ def predict_stock_FV(investings):
     three_yr = investings + (investings * (0.1059))
     five_yr = investings + (investings * (0.1129))
     ten_yr = investings + (investings * (0.1295))
-    avg_annual_tot_returns_stock.append([one_yr, three_yr, five_yr, ten_yr])
+    avg_annual_tot_returns_stock.append([1,one_yr])
+    avg_annual_tot_returns_stock.append([3, three_yr])
+    avg_annual_tot_returns_stock.append([5,five_yr])
+    avg_annual_tot_returns_stock.append([10,ten_yr])
     return avg_annual_tot_returns_stock
 
 @app.route("/")
 def index():
-    
-    # # Load current count
-    # f = open("count.txt", "r")
-    # count = int(f.read())
-    # f.close()
+    return render_template("index.html", err_msg="")
 
-    # # Increment the count
-    # count += 1
-
-    # # Overwrite the count
-    # f = open("count.txt", "w")
-    # f.write(str(count))
-    # f.close()
-
-    # Render HTML with count variable
-    # return render_template("index.html", count=count)
-
-    return render_template("index.html")
-
-@app.route('/predict', methods=["POST"])
+@app.route('/predict', methods=["POST", "GET"])
 def futureVal():
     # TODO: try catch for int or otherwise
-    if request.form.get('indexButton') == 'VALUE1':
-        investings = str(request.form.get('invest_amount')).strip(',$')
-        print(investings)
-    # predict_bond_FV(int(investings))
-    # predict_stock_FV(int(investings))
+    while True:
+        try:
+            if request.form.get('indexButton') == 'VALUE1':
+                investings = str(request.form.get('invest_amount')).strip(',$')
+            print(investings)
+            break
+        except ValueError:
+            print('Please enter a number:')
 
-    print('bond_FV: ',predict_bond_FV(int(investings)))
-    print('stock_FV: ',predict_stock_FV(int(investings)))
-    return render_template("futureVal.html", bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)))#, bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)))
+
+    print(predict_bond_FV(int(investings)))
+    return render_template("futureVal.html", bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)) )#, bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)))
 
 
 if __name__ == "__main__":
