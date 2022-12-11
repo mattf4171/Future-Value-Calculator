@@ -54,7 +54,7 @@ def futureVal():
 
 
     print(predict_bond_FV(int(investings)))
-    return render_template("futureVal.html", bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)) )#, bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)))
+    return render_template("futureVal.html", investings = investings, bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)) )#, bond_FV = predict_bond_FV(int(investings)), stock_FV = predict_stock_FV(int(investings)))
 
 
 if __name__ == "__main__":
